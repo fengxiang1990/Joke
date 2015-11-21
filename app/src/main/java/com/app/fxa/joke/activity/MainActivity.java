@@ -221,6 +221,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 intent = new Intent(MainActivity.this, GifsActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.item_menu_about:
+                intent = new Intent(MainActivity.this, AboutWebActivity.class);
+                startActivity(intent);
+                return true;
         }
         return false;
     }

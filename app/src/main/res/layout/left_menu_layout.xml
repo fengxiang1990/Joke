@@ -32,7 +32,7 @@
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:foregroundGravity="center"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
@@ -52,7 +52,7 @@
                         android:layout_margin="3dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
@@ -78,7 +78,7 @@
                         android:layout_margin="3dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
@@ -100,7 +100,7 @@
                         android:layout_margin="3dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
@@ -126,7 +126,7 @@
                         android:layout_margin="3dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
@@ -146,7 +146,7 @@
                         android:layout_margin="3dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
@@ -174,7 +174,7 @@
                         android:layout_margin="3dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
@@ -194,7 +194,7 @@
                         android:layout_margin="3dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
@@ -221,7 +221,7 @@
                         android:layout_margin="3dp"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
-                        app:cardBackgroundColor="@color/whitesmoke"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="0dp">
 
                         <TextView
