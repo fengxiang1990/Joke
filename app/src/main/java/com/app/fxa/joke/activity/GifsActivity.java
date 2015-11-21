@@ -328,7 +328,13 @@ public class GifsActivity extends BaseActivity implements SwipeRefreshLayout.OnR
                         for (Element element : rootElements) {
                             Elements titles = element.getElementsByClass("article-title");
                             Elements summarys = element.getElementsByClass("summary-text");
-                            String img_url = summarys.get(0).getElementsByTag("img").get(0).attr("src");
+                            Element summaryElement = summarys.get(0);
+                            String img_url = null;
+                            if (summaryElement.toString().contains("loadsrc")) {
+                                img_url = summaryElement.getElementsByTag("img").get(0).attr("loadsrc");
+                            } else {
+                                img_url = summarys.get(0).getElementsByTag("img").get(0).attr("src");
+                            }
                             String title = titles.get(0).text();
                             if (!TextUtils.isEmpty(img_url) && !TextUtils.isEmpty(title)) {
                                 ImageJoke joke = new ImageJoke();
