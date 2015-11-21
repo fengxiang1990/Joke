@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="app_name">开心笑话</string>
+    <string name="app_name_detail">你的开心我的笑话</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">菜单</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="today_recommend">今日推荐</string>
+    <string name="cold_jokes">冷笑话</string>
+    <string name="humor_jokes">幽默笑话</string>
+    <string name="love_jokes">爱情</string>
+    <string name="high_jokes">爆笑</string>
+    <string name="school_jokes">校园</string>
+    <string name="children_jokes">儿童</string>
+    <string name="adult_jokes">成人</string>
+    <string name="all_jokes">查看所有</string>
+
+    <string name="shareTo">分享</string>
+    <string name="shareWarn">按住要分享的笑话才能分享哦~</string>
+</resources>

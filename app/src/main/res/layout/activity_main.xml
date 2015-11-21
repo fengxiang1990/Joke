@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/top"
+            layout="@layout/ac_action_bar" />
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/main_drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent">
+
+            <RelativeLayout
+                android:id="@+id/main_content_frame_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent">
+
+                <!-- 下层显示的主要内容 -->
+
+                <FrameLayout
+                    android:id="@+id/main_content_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white"
+                    android:scrollbars="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"></LinearLayout>
+                </FrameLayout>
+            </RelativeLayout>
+
+            <!-- 左侧滑动栏 -->
+
+            <LinearLayout
+                android:id="@+id/main_left"
+                android:layout_width="310dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/whitesmoke"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <!-- android:layout_gravity="start" -->
+                <include layout="@layout/left_menu_layout" />
+
+            </LinearLayout>
+        </android.support.v4.widget.DrawerLayout>
+    </LinearLayout>
+
+</merge>
