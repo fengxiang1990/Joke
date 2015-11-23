@@ -24,7 +24,7 @@ import com.app.fxa.joke.fragment.MainFragment;
 import java.util.List;
 
 /**
- * Created by chengxu1 on 2015/9/2.
+ * fengxiang
  */
 public class JokeAdapter extends BaseAdapter {
 
@@ -34,6 +34,7 @@ public class JokeAdapter extends BaseAdapter {
     List<Joke> jokes;
     LayoutInflater inflater;
     ClipboardManager clipboardManager;
+
     public JokeAdapter(MainFragment mainFragment, List<Joke> jokes) {
         this.mainFragment = mainFragment;
         this.jokes = jokes;
@@ -63,7 +64,7 @@ public class JokeAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder;
         if (activity != null) {
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
