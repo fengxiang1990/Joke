@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.FragmentManager;
@@ -22,6 +23,7 @@ import com.app.fxa.joke.fragment.MainFragment;
 import com.app.fxa.joke.model.JokeType;
 import com.app.fxa.joke.service.DataService;
 import com.app.fxa.joke.util.AppConfig;
+import com.app.fxa.joke.view.DrawerArrowDrawable;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -54,12 +56,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     void initView() {
+        Resources resources = getResources();
+        DrawerArrowDrawable drawerArrowDrawable = new DrawerArrowDrawable(resources);
+        drawerArrowDrawable.setStrokeColor(resources
+                .getColor(R.color.lightgray));
         toolbar = (Toolbar) this.findViewById(R.id.toolbar);
         toolbar.setTitle("今日推荐");
         toolbar.setSubtitle("下拉可以换一批笑话哟~");
         toolbar.setSubtitleTextColor(getResources().getColor(R.color.lightgray));
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_more);
+        toolbar.setNavigationIcon(drawerArrowDrawable);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -219,6 +225,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 return true;
             case R.id.item_menu_gif:
                 intent = new Intent(MainActivity.this, GifsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.item_menu_about:
+                intent = new Intent(MainActivity.this, AboutWebActivity.class);
                 startActivity(intent);
                 return true;
         }

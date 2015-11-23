@@ -63,6 +63,10 @@
             android:name=".activity.GifsActivity"
             android:launchMode="singleInstance" />
 
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".activity.AboutWebActivity"
+            android:launchMode="singleInstance" />
 
         <activity
             android:name="com.mob.tools.MobUIShell"

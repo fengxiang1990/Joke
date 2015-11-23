@@ -4,6 +4,12 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/item_menu_gif"
+        android:orderInCategory="100"
+        android:title="搞笑趣图"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/item_menu_mine"
         android:orderInCategory="100"
         android:title="我的笑话"
@@ -11,9 +17,9 @@
 
 
     <item
-        android:id="@+id/item_menu_gif"
+        android:id="@+id/item_menu_about"
         android:orderInCategory="100"
-        android:title="搞笑趣图"
+        android:title="关于"
         app:showAsAction="never" />
 
 </menu>
