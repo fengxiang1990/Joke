@@ -24,7 +24,7 @@ public class MyApplication extends SugarApp {
         requestQueue = Volley.newRequestQueue(this);
         imageLoader = new ImageLoader(requestQueue, new BitmapLruCache());
         AppManager.setImageLoader(imageLoader);
-        Fresco.initialize(this);//111111
+        Fresco.initialize(this);
     }
 
 }
