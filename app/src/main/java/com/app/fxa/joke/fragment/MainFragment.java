@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.app.fxa.joke.BaseFragment;
@@ -24,6 +25,7 @@ import com.app.fxa.joke.model.JokeType;
 import com.app.fxa.joke.service.DataService;
 import com.app.fxa.joke.util.AppConfig;
 import com.app.fxa.joke.util.ThreadPool;
+import com.baidu.appx.BDBannerAd;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -62,7 +64,9 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     SimpleDraweeView draweeView;
     CardView cardView;
     SwipeRefreshLayout swipeRefreshLayout;
-
+    RelativeLayout adContainer;
+    RelativeLayout adContainer2;
+    private static BDBannerAd bannerAdView;
     private JokeAdapter adapter;
 
     public DataService getDataService() {
@@ -123,9 +127,16 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     }
 
     public void initView(View rootView) {
+        bannerAdView = new BDBannerAd(getActivity(), "awfNCwb6Ydq5o8jd1aGdWXbW", "MdsZPWxwsIGoyUDGeeaBjynD");
+        // 设置横幅广告展示尺寸，如不设置，默认为SIZE_FLEXIBLE;
+        bannerAdView.setAdSize(BDBannerAd.SIZE_FLEXIBLE);
+
         listView = (ListView) rootView.findViewById(R.id.listView);
         topView = LayoutInflater.from(getActivity()).inflate(R.layout.joke_list_top, null);
         listView.addHeaderView(topView);
+        adContainer = (RelativeLayout) topView.findViewById(R.id.adContainer);
+        // 显示广告视图
+        adContainer.addView(bannerAdView);
         draweeView = (SimpleDraweeView) topView.findViewById(R.id.img);
         cardView = (CardView) topView.findViewById(R.id.card);
         swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_container);

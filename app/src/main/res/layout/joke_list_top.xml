@@ -22,8 +22,8 @@
             android:id="@+id/img"
             android:layout_width="360dp"
             android:layout_height="210dp"
-            android:layout_margin="6dp"
             android:layout_gravity="center"
+            android:layout_margin="6dp"
             fresco:actualImageScaleType="fitCenter"
             fresco:placeholderImage="@drawable/ic_menu1" />
 
@@ -33,8 +33,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="15dp"
-            android:textColor="@color/black"
-            android:text="更多趣图" />
+            android:text="更多趣图"
+            android:textColor="@color/black" />
     </android.support.v7.widget.CardView>
 
+    <RelativeLayout
+        android:id="@+id/adContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"></RelativeLayout>
 </LinearLayout>
