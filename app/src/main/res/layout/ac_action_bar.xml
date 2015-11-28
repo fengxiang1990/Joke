@@ -17,7 +17,7 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@drawable/action_bar_bg"
+        android:background="@drawable/action_bar_bg2"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
