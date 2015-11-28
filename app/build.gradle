@@ -36,4 +36,12 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:+'
     compile files('libs/baidu_cuid.jar')
     compile files('libs/baidu_appx_android_2.0.0.jar')
+    compile files('libs/MobCommons.jar')
+    compile files('libs/ShareSDK-Core-2.6.5.jar')
+    compile files('libs/ShareSDK-QQ-2.6.5.jar')
+    compile files('libs/ShareSDK-QZone-2.6.5.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.6.5.jar')
+    compile files('libs/ShareSDK-Wechat-2.6.5.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.6.5.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-2.6.5.jar')
 }
