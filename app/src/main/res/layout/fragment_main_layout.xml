@@ -13,9 +13,8 @@
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/whitesmoke"
+            android:background="@color/white"
             android:divider="@null"
-            android:padding="8dp"
             android:scrollbars="none"></ListView>
     </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

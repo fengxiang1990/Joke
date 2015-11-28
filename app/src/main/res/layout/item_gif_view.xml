@@ -23,7 +23,7 @@
         android:layout_marginRight="15dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/whitesmoke"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="0dp">
 
         <com.facebook.drawee.view.SimpleDraweeView

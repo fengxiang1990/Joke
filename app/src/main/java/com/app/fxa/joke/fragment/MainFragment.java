@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.fxa.joke.BaseFragment;
@@ -62,10 +63,12 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     ListView listView;
     SimpleDraweeView draweeView;
+    SimpleDraweeView draweeView2;
+    SimpleDraweeView draweeView3;
     CardView cardView;
     SwipeRefreshLayout swipeRefreshLayout;
     RelativeLayout adContainer;
-    RelativeLayout adContainer2;
+
     private static BDBannerAd bannerAdView;
     private JokeAdapter adapter;
 
@@ -86,6 +89,9 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     private boolean isRefresh = false;// 是否刷新中
     View topView;
+    View topView2;
+    TextView btn1;
+    TextView btn2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -106,19 +112,28 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                     URL localURL = new URL(url);
                     Element localElement1 = Jsoup.parse(localURL, 5000).body();
                     Elements rootElements = localElement1.getElementsByClass("article-summary");
-                    Element element = rootElements.get(0);
-                    Elements summarys = element.getElementsByClass("summary-text");
-                    element = rootElements.get(0);
-                    String img_url = element.getElementsByTag("img").get(0).attr("src");
-                    if (!TextUtils.isEmpty(img_url)) {
-                        Log.i("element", element.getElementsByTag("img").get(0).attr("src"));
-                        Bundle bd = new Bundle();
-                        bd.putString("IMG_URL", img_url);
-                        Message msg = handler.obtainMessage();
-                        msg.what = LOAD_IMG_SUCCESS;
-                        msg.setData(bd);
-                        handler.sendMessage(msg);
+                    Bundle bd = new Bundle();
+                    int count = 0;
+                    for (int i = 0; i < rootElements.size(); i++) {
+                        String img_url;
+                        Element element = rootElements.get(i);
+                        if (element.getElementsByTag("img").toString().contains("loadsrc")) {
+                            img_url = element.getElementsByTag("img").get(0).attr("loadsrc");
+                        } else {
+                            img_url = element.getElementsByTag("img").get(0).attr("src");
+                        }
+                        if (!TextUtils.isEmpty(img_url)) {
+                            bd.putString("IMG_URL" + (i + 1), img_url);
+                            count++;
+                            if (count == 3) {
+                                break;
+                            }
+                        }
                     }
+                    Message msg = handler.obtainMessage();
+                    msg.what = LOAD_IMG_SUCCESS;
+                    msg.setData(bd);
+                    handler.sendMessage(msg);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -134,11 +149,31 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         listView = (ListView) rootView.findViewById(R.id.listView);
         topView = LayoutInflater.from(getActivity()).inflate(R.layout.joke_list_top, null);
         listView.addHeaderView(topView);
+        topView2 = LayoutInflater.from(getActivity()).inflate(R.layout.item_header_menu, null);
+        listView.addHeaderView(topView2);
         adContainer = (RelativeLayout) topView.findViewById(R.id.adContainer);
         // 显示广告视图
         adContainer.addView(bannerAdView);
         draweeView = (SimpleDraweeView) topView.findViewById(R.id.img);
+        draweeView2 = (SimpleDraweeView) topView.findViewById(R.id.img2);
+        draweeView3 = (SimpleDraweeView) topView.findViewById(R.id.img3);
+        btn1 = (TextView) topView2.findViewById(R.id.btn_1);
+        btn2 = (TextView) topView2.findViewById(R.id.btn_2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), GifsActivity.class);
+                startActivity(intent);
+            }
+        });
         cardView = (CardView) topView.findViewById(R.id.card);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), GifsActivity.class);
+                startActivity(intent);
+            }
+        });
         swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_container);
         swipeRefreshLayout.setOnRefreshListener(this);
         // 加载颜色是循环播放的，只要没有完成刷新就会一直循环,
@@ -190,9 +225,11 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                     break;
                 case LOAD_IMG_SUCCESS:
                     Bundle bd = msg.getData();
-                    String img_url = bd.getString("IMG_URL");
+                    String img_url1 = bd.getString("IMG_URL1");
+                    String img_url2 = bd.getString("IMG_URL2");
+                    String img_url3 = bd.getString("IMG_URL3");
                     //首页默认GIF
-                    Uri uri = Uri.parse(img_url);
+                    Uri uri = Uri.parse(img_url1);
                     ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
                             .build();
 
@@ -201,13 +238,24 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                             .setAutoPlayAnimations(true)
                             .build();
                     draweeView.setController(controller);
-                    cardView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(getActivity(), GifsActivity.class);
-                            startActivity(intent);
-                        }
-                    });
+
+                    uri = Uri.parse(img_url2);
+                    request = ImageRequestBuilder.newBuilderWithSource(uri)
+                            .build();
+                    controller = Fresco.newDraweeControllerBuilder()
+                            .setImageRequest(request)
+                            .setAutoPlayAnimations(true)
+                            .build();
+                    draweeView2.setController(controller);
+
+                    uri = Uri.parse(img_url3);
+                    request = ImageRequestBuilder.newBuilderWithSource(uri)
+                            .build();
+                    controller = Fresco.newDraweeControllerBuilder()
+                            .setImageRequest(request)
+                            .setAutoPlayAnimations(true)
+                            .build();
+                    draweeView3.setController(controller);
                     break;
             }
 

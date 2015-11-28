@@ -15,31 +15,71 @@
         android:layout_marginTop="15dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/whitesmoke"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="0dp">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/img"
-            android:layout_width="360dp"
-            android:layout_height="210dp"
-            android:layout_gravity="center"
-            android:layout_margin="6dp"
-            fresco:actualImageScaleType="fitCenter"
-            fresco:placeholderImage="@drawable/ic_menu1" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="15dp"
-            android:text="更多趣图"
-            android:textColor="@color/black" />
+            android:orientation="horizontal">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img"
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                fresco:actualImageScaleType="centerCrop"
+                fresco:placeholderImage="@drawable/ic_menu7" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img2"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:placeholderImage="@drawable/ic_menu5" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img3"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:placeholderImage="@drawable/ic_menu3" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="15dp"
+                android:text="更多趣图"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <RelativeLayout
         android:id="@+id/adContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"></RelativeLayout>
+        android:layout_gravity="bottom"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"></RelativeLayout>
 </LinearLayout>

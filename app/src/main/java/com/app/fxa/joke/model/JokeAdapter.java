@@ -8,7 +8,6 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +47,6 @@ public class JokeAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        Log.i(TAG, String.valueOf(jokes.size()));
         return jokes.size();
     }
 
