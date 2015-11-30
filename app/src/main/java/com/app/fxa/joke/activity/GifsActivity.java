@@ -378,9 +378,9 @@ public class GifsActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         //关闭sso授权
         oks.disableSSOWhenAuthorize();
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-        oks.setTitle(getString(R.string.share));
+        oks.setTitle(getString(R.string.app_name));
         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-        oks.setTitleUrl("http://shouji.baidu.com/software/item?docid=7475147&from=as");
+        oks.setTitleUrl(AppConfig.APP_SHARE_URL);
         // text是分享文本，所有平台都需要这个字段
         oks.setText(joke.getTitle());
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
@@ -393,7 +393,7 @@ public class GifsActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         // site是分享此内容的网站名称，仅在QQ空间使用
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用
-        oks.setSiteUrl("http://shouji.baidu.com/software/item?docid=7475147&from=as");
+        oks.setSiteUrl(AppConfig.APP_SHARE_URL);
 // 启动分享GUI
         oks.show(GifsActivity.this);
     }

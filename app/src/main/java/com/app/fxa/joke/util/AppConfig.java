@@ -7,6 +7,8 @@ import com.app.fxa.joke.model.JokeType;
 
 public class AppConfig {
 
+    public static final String APP_ICON_SHARE_URL = "http://bcs.91.com/pcsuite-dev/img/0/512_512/fd31238407bb3fa4f963d22f18ed6152.png";
+    public static final String APP_SHARE_URL = "http://shouji.baidu.com/software/item?docid=8175466";
     public static final int QUTU_PAGE_COUNT = 733; //现在有733页
     public static final int TAKE_PHOTO = 1;
     public static final int CROP_PHOTO = 2;
